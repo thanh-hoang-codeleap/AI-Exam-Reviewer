@@ -1,0 +1,666 @@
+[
+      {
+        "original": "Good morning Mrs. Goldberg,",
+        "corrected": "Good morning, Mrs. Goldberg,",
+        "mistakes": [
+          {
+            "incorrect": "Good morning Mrs. Goldberg,",
+            "correction": "Good morning, Mrs. Goldberg,",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "Good morning Mrs. Goldberg, → Good morning, Mrs. Goldberg, (a comma is needed after 'Good morning' to separate the greeting from the name)"
+          }
+        ]
+      },
+      {
+        "original": "I hope you are fine and able to read my.",
+        "corrected": "I hope you are fine and able to read my message.",
+        "mistakes": [
+          {
+            "incorrect": "my.",
+            "correction": "my message.",
+            "short_form": "voc. (incorrect piece of vocabulary)",
+            "analysis": "my. → my message. (the word 'my' is incomplete and needs a noun to clarify the meaning)"
+          }
+        ]
+      },
+      {
+        "original": "message !",
+        "corrected": "message!",
+        "mistakes": [
+          {
+            "incorrect": "message !",
+            "correction": "message!",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "message ! → message! (there should be no space before the exclamation mark)"
+          }
+        ]
+      },
+      {
+        "original": "Today, I read your article about children",
+        "corrected": "Today, I read your article about children,",
+        "mistakes": [
+          {
+            "incorrect": "children",
+            "correction": "children,",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "children → children, (a comma is needed to indicate continuation of the sentence)"
+          }
+        ]
+      },
+      {
+        "original": "and the use of their phones and I would",
+        "corrected": "and the use of their phones, and I would",
+        "mistakes": [
+          {
+            "incorrect": "phones and I would",
+            "correction": "phones, and I would",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "phones and I would → phones, and I would (a comma is needed before 'and' to separate the clauses)"
+          }
+        ]
+      },
+      {
+        "original": "like to comment some aspects to you",
+        "corrected": "like to comment on some aspects to you.",
+        "mistakes": [
+          {
+            "incorrect": "comment some",
+            "correction": "comment on some",
+            "short_form": "gr. (incorrect preposition)",
+            "analysis": "comment some → comment on some (the verb 'comment' requires the preposition 'on' to indicate the subject of the comment)"
+          }
+        ]
+      },
+      {
+        "original": "First of all , in our society is very .",
+        "corrected": "First of all, it is very difficult in our society.",
+        "mistakes": [
+          {
+            "incorrect": "First of all ,",
+            "correction": "First of all,",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "First of all , → First of all, (there should be no space before the comma)"
+          },
+          {
+            "incorrect": "in our society is very .",
+            "correction": "it is very difficult in our society.",
+            "short_form": "gr. (subject verb error)",
+            "analysis": "in our society is very . → it is very difficult in our society. (the sentence lacks a subject; 'it' is needed to complete the thought)"
+          }
+        ]
+      },
+      {
+        "original": "difficult children to get children off their",
+        "corrected": "It is difficult for children to get off their",
+        "mistakes": [
+          {
+            "incorrect": "difficult children to get",
+            "correction": "It is difficult for children to get",
+            "short_form": "gr. (subject verb error)",
+            "analysis": "difficult children to get → It is difficult for children to get (the original structure is confusing and lacks a clear subject)"
+          }
+        ]
+      },
+      {
+        "original": "phones . This device has become like their",
+        "corrected": "phones. This device has become like their",
+        "mistakes": [
+          {
+            "incorrect": "phones .",
+            "correction": "phones.",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "phones . → phones. (there should be no space before the period)"
+          }
+        ]
+      },
+      {
+        "original": "\"best friend\", where they can search any",
+        "corrected": "\"best friend,\" where they can search for any",
+        "mistakes": [
+          {
+            "incorrect": "\"best friend\",",
+            "correction": "\"best friend,\"",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "\"best friend\", → \"best friend,\" (the comma should be inside the quotation marks)"
+          },
+          {
+            "incorrect": "search any",
+            "correction": "search for any",
+            "short_form": "gr. (incorrect preposition)",
+            "analysis": "search any → search for any (the verb 'search' requires the preposition 'for' to indicate what is being searched)"
+          }
+        ]
+      },
+      {
+        "original": "type of information, communicate with others",
+        "corrected": "type of information, communicate with others,",
+        "mistakes": [
+          {
+            "incorrect": "others",
+            "correction": "others,",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "others → others, (a comma is needed to indicate continuation of the sentence)"
+          }
+        ]
+      },
+      {
+        "original": "and be entertained. For example, a passe who",
+        "corrected": "and be entertained. For example, a person who",
+        "mistakes": [
+          {
+            "incorrect": "a passe who",
+            "correction": "a person who",
+            "short_form": "voc. (incorrect piece of vocabulary)",
+            "analysis": "a passe who → a person who (the word 'passe' is incorrect; 'person' is the appropriate term)"
+          }
+        ]
+      },
+      {
+        "original": "has a long-distance relationship has no",
+        "corrected": "has a long-distance relationship has no",
+        "mistakes": []
+      },
+      {
+        "original": "other option than be connected to his phone",
+        "corrected": "other option than to be connected to his phone",
+        "mistakes": [
+          {
+            "incorrect": "than be",
+            "correction": "than to be",
+            "short_form": "gr. (incorrect verb form)",
+            "analysis": "than be → than to be (the phrase requires the infinitive form 'to be' after 'than')"
+          }
+        ]
+      },
+      {
+        "original": "to communicate with his girlfriend. I know",
+        "corrected": "to communicate with his girlfriend. I know",
+        "mistakes": []
+      },
+      {
+        "original": "that this is a special case, but like this",
+        "corrected": "that this is a special case, but there are many like this.",
+        "mistakes": [
+          {
+            "incorrect": "but like this",
+            "correction": "but there are many like this.",
+            "short_form": "gr. (incorrect sentence construction)",
+            "analysis": "but like this → but there are many like this. (the phrase is incomplete and needs clarification)"
+          }
+        ]
+      },
+      {
+        "original": "one there is a lot. That is why in",
+        "corrected": "That is why in",
+        "mistakes": [
+          {
+            "incorrect": "one there is a lot.",
+            "correction": "",
+            "short_form": "writing (imprecise language)",
+            "analysis": "one there is a lot. → (the phrase is unclear and does not convey a complete thought)"
+          }
+        ]
+      },
+      {
+        "original": "i",
+        "corrected": "some situations, the use of the phone is",
+        "mistakes": [
+          {
+            "incorrect": "i",
+            "correction": "some situations, the use of the phone is",
+            "short_form": "gr. (incorrect capitalization)",
+            "analysis": "i → some situations, the use of the phone is (the pronoun 'I' should be capitalized)"
+          }
+        ]
+      },
+      {
+        "original": "some situations the use of the phone is",
+        "corrected": "difficult to control.",
+        "mistakes": [
+          {
+            "incorrect": "some situations the use of the phone is",
+            "correction": "difficult to control.",
+            "short_form": "writing (imprecise language)",
+            "analysis": "some situations the use of the phone is → difficult to control. (the original phrase is incomplete and does not convey a clear meaning)"
+          }
+        ]
+      },
+      {
+        "original": "difficult to control.",
+        "corrected": "",
+        "mistakes": [
+          {
+            "incorrect": "difficult to control.",
+            "correction": "",
+            "short_form": "writing (imprecise language)",
+            "analysis": "difficult to control. → (the phrase is incomplete and does not connect to the previous context)"
+          }
+        ]
+      },
+      {
+        "original": "However, you have a point talking about",
+        "corrected": "However, you make a good point about",
+        "mistakes": [
+          {
+            "incorrect": "you have a point talking about",
+            "correction": "you make a good point about",
+            "short_form": "gr. (incorrect verb form)",
+            "analysis": "you have a point talking about → you make a good point about (the phrase is improved by using 'make' instead of 'have')"
+          }
+        ]
+      },
+      {
+        "original": "right spaces for children. It is very",
+        "corrected": "the right spaces for children. It is very",
+        "mistakes": [
+          {
+            "incorrect": "right spaces for children.",
+            "correction": "the right spaces for children.",
+            "short_form": "art. (incorrect use of articles)",
+            "analysis": "right spaces for children. → the right spaces for children. (the definite article 'the' is needed to specify the spaces)"
+          }
+        ]
+      },
+      {
+        "original": "important to offer adecuated spaces for them",
+        "corrected": "important to offer adequate spaces for them",
+        "mistakes": [
+          {
+            "incorrect": "adecuated",
+            "correction": "adequate",
+            "short_form": "sp. (incorrect spelling of words)",
+            "analysis": "adecuated → adequate (the word 'adecuated' is a misspelling; the correct spelling is 'adequate')"
+          }
+        ]
+      },
+      {
+        "original": "where they feel free and can communicate",
+        "corrected": "where they feel free and can communicate",
+        "mistakes": []
+      },
+      {
+        "original": "with others in person. I support your",
+        "corrected": "with others in person. I support your",
+        "mistakes": []
+      },
+      {
+        "original": "fantastic idea of having more parks , food",
+        "corrected": "fantastic idea of having more parks, food",
+        "mistakes": [
+          {
+            "incorrect": "parks ,",
+            "correction": "parks,",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "parks , → parks, (there should be no space before the comma)"
+          }
+        ]
+      },
+      {
+        "original": "courts, movie theaters and others. Moreover, I would",
+        "corrected": "courts, movie theaters, and others. Moreover, I would",
+        "mistakes": [
+          {
+            "incorrect": "theaters and others.",
+            "correction": "theaters, and others.",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "theaters and others. → theaters, and others. (a comma is needed before 'and' in a list)"
+          }
+        ]
+      },
+      {
+        "original": "like to add another great aspect related",
+        "corrected": "like to add another great aspect related",
+        "mistakes": []
+      },
+      {
+        "original": "with this . Children need to disconnect after",
+        "corrected": "to this. Children need to disconnect after",
+        "mistakes": [
+          {
+            "incorrect": "with this .",
+            "correction": "to this.",
+            "short_form": "writing (imprecise language)",
+            "analysis": "with this . → to this. (the phrase is unclear and needs rephrasing for clarity)"
+          }
+        ]
+      },
+      {
+        "original": "a long day of school, that is why I",
+        "corrected": "a long day of school; that is why I",
+        "mistakes": [
+          {
+            "incorrect": "school, that is why I",
+            "correction": "school; that is why I",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "school, that is why I → school; that is why I (a semicolon is needed to separate two independent clauses)"
+          }
+        ]
+      },
+      {
+        "original": "propose to add areas with banks, ,",
+        "corrected": "propose to add areas with benches,",
+        "mistakes": [
+          {
+            "incorrect": "with banks, ,",
+            "correction": "with benches,",
+            "short_form": "voc. (incorrect piece of vocabulary)",
+            "analysis": "with banks, , → with benches, (the word 'banks' is incorrect; 'benches' is the appropriate term)"
+          }
+        ]
+      },
+      {
+        "original": "Swings and other distractions for them to play",
+        "corrected": "swings, and other distractions for them to play",
+        "mistakes": [
+          {
+            "incorrect": "Swings and",
+            "correction": "swings, and",
+            "short_form": "gr. (incorrect capitalization)",
+            "analysis": "Swings and → swings, and (the word 'swings' should not be capitalized as it is not at the beginning of a sentence)"
+          }
+        ]
+      },
+      {
+        "original": "with their friends and be all together .",
+        "corrected": "with their friends and be all together.",
+        "mistakes": [
+          {
+            "incorrect": "together .",
+            "correction": "together.",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "together . → together. (there should be no space before the period)"
+          }
+        ]
+      },
+      {
+        "original": "Finally , parents need to be aware of their",
+        "corrected": "Finally, parents need to be aware of their",
+        "mistakes": [
+          {
+            "incorrect": "Finally ,",
+            "correction": "Finally,",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "Finally , → Finally, (there should be no space before the comma)"
+          }
+        ]
+      },
+      {
+        "original": "children and help them to communicate with",
+        "corrected": "children and help them communicate with",
+        "mistakes": [
+          {
+            "incorrect": "help them to communicate",
+            "correction": "help them communicate",
+            "short_form": "gr. (incorrect verb form)",
+            "analysis": "help them to communicate → help them communicate (the verb 'help' does not require 'to' before the base form)"
+          }
+        ]
+      },
+      {
+        "original": "others. With this I mean that parents have to collaborate",
+        "corrected": "others. By this, I mean that parents have to collaborate",
+        "mistakes": [
+          {
+            "incorrect": "With this I mean",
+            "correction": "By this, I mean",
+            "short_form": "gr. (incorrect word choice)",
+            "analysis": "With this I mean → By this, I mean (the phrase 'By this' is more appropriate for clarity)"
+          }
+        ]
+      },
+      {
+        "original": "Ky Take their childrens to the porn or spaces.",
+        "corrected": "to take their children to the park or spaces",
+        "mistakes": [
+          {
+            "incorrect": "Ky Take",
+            "correction": "to take",
+            "short_form": "gr. (incorrect sentence construction)",
+            "analysis": "Ky Take → to take (the phrase is incorrectly structured and needs rephrasing)"
+          },
+          {
+            "incorrect": "childrens",
+            "correction": "children",
+            "short_form": "sp. (incorrect spelling of words)",
+            "analysis": "childrens → children (the plural form of 'child' is 'children', not 'childrens')"
+          },
+          {
+            "incorrect": "porn",
+            "correction": "park",
+            "short_form": "voc. (incorrect piece of vocabulary)",
+            "analysis": "porn → park (the word 'porn' is incorrect; 'park' is the appropriate term)"
+          }
+        ]
+      },
+      {
+        "original": "where they can meet with their friends and",
+        "corrected": "where they can meet their friends and",
+        "mistakes": [
+          {
+            "incorrect": "meet with their friends",
+            "correction": "meet their friends",
+            "short_form": "gr. (incorrect verb form)",
+            "analysis": "meet with their friends → meet their friends (the verb 'meet' does not require 'with' when referring to people)"
+          }
+        ]
+      },
+      {
+        "original": "do not have the boys and girls the entire",
+        "corrected": "not keep the boys and girls closed at home all day.",
+        "mistakes": [
+          {
+            "incorrect": "do not have the boys and girls the entire",
+            "correction": "not keep the boys and girls closed at home all day.",
+            "short_form": "gr. (incorrect sentence construction)",
+            "analysis": "do not have the boys and girls the entire → not keep the boys and girls closed at home all day. (the original phrase is unclear and needs rephrasing for clarity)"
+          }
+        ]
+      },
+      {
+        "original": "day closed at home. Thanks to this little",
+        "corrected": "",
+        "mistakes": [
+          {
+            "incorrect": "day closed at home.",
+            "correction": "",
+            "short_form": "writing (imprecise language)",
+            "analysis": "day closed at home. → (the phrase is incomplete and does not connect to the previous context)"
+          }
+        ]
+      },
+      {
+        "original": "efforts #parents will achieve that their",
+        "corrected": "efforts, parents will achieve that their",
+        "mistakes": [
+          {
+            "incorrect": "efforts #parents",
+            "correction": "efforts, parents",
+            "short_form": "writing (imprecise language)",
+            "analysis": "efforts #parents → efforts, parents (the '#' symbol is inappropriate and should be replaced with a comma)"
+          }
+        ]
+      },
+      {
+        "original": "children get off their phones and meet",
+        "corrected": "children get off their phones and meet",
+        "mistakes": []
+      },
+      {
+        "original": "with their friends in person.",
+        "corrected": "with their friends in person.",
+        "mistakes": []
+      },
+      {
+        "original": "In conclusion, control the use of children's",
+        "corrected": "In conclusion, controlling the use of children's",
+        "mistakes": [
+          {
+            "incorrect": "control the use of children's",
+            "correction": "controlling the use of children's",
+            "short_form": "gr. (verb form error)",
+            "analysis": "control the use of children's → controlling the use of children's (the gerund form 'controlling' is needed to match the structure of the sentence)"
+          }
+        ]
+      },
+      {
+        "original": "phones is on aspect that involves the",
+        "corrected": "phones is an aspect that involves both",
+        "mistakes": [
+          {
+            "incorrect": "is on aspect",
+            "correction": "is an aspect",
+            "short_form": "gr. (incorrect verb form)",
+            "analysis": "is on aspect → is an aspect (the correct phrase is 'is an aspect' to indicate a singular noun)"
+          }
+        ]
+      },
+      {
+        "original": "parents and the children itself and everyone",
+        "corrected": "parents and the children themselves, and everyone",
+        "mistakes": [
+          {
+            "incorrect": "the children itself",
+            "correction": "the children themselves",
+            "short_form": "gr. (incorrect pronoun use)",
+            "analysis": "the children itself → the children themselves (the pronoun 'itself' is incorrect; 'themselves' is the appropriate reflexive pronoun for plural)"
+          }
+        ]
+      },
+      {
+        "original": "needs to put a little bit of effort to",
+        "corrected": "needs to put in a little effort to",
+        "mistakes": [
+          {
+            "incorrect": "put a little bit of effort to",
+            "correction": "put in a little effort to",
+            "short_form": "gr. (incorrect verb form)",
+            "analysis": "put a little bit of effort to → put in a little effort to (the phrase requires 'put in' to indicate the action correctly)"
+          }
+        ]
+      },
+      {
+        "original": "make a good use of the device. It is also very",
+        "corrected": "make good use of the device. It is also very",
+        "mistakes": [
+          {
+            "incorrect": "make a good use of",
+            "correction": "make good use of",
+            "short_form": "gr. (incorrect article usage)",
+            "analysis": "make a good use of → make good use of (the phrase does not require the article 'a' before 'good use')"
+          }
+        ]
+      },
+      {
+        "original": "important the addition of parks, food courts",
+        "corrected": "important to add parks, food courts,",
+        "mistakes": [
+          {
+            "incorrect": "important the addition of",
+            "correction": "important to add",
+            "short_form": "gr. (incorrect sentence construction)",
+            "analysis": "important the addition of → important to add (the phrase needs rephrasing for clarity and grammatical correctness)"
+          }
+        ]
+      },
+      {
+        "original": "and all type of spaces onel opportunities for",
+        "corrected": "and all types of spaces to create opportunities for",
+        "mistakes": [
+          {
+            "incorrect": "type of spaces onel",
+            "correction": "types of spaces to create",
+            "short_form": "voc. (incorrect piece of vocabulary)",
+            "analysis": "type of spaces onel → types of spaces to create (the word 'onel' is incorrect; 'to create' clarifies the purpose)"
+          }
+        ]
+      },
+      {
+        "original": "then.",
+        "corrected": "them.",
+        "mistakes": [
+          {
+            "incorrect": "then.",
+            "correction": "them.",
+            "short_form": "voc. (incorrect piece of vocabulary)",
+            "analysis": "then. → them. (the word 'then' is incorrect in this context; 'them' is the appropriate pronoun)"
+          }
+        ]
+      },
+      {
+        "original": "I hope you understand my message",
+        "corrected": "I hope you understand my message.",
+        "mistakes": [
+          {
+            "incorrect": "my message",
+            "correction": "my message.",
+            "short_form": "punct. (incorrect punctuation)",
+            "analysis": "my message → my message. (a period is needed at the end of the sentence)"
+          }
+        ]
+      },
+      {
+        "original": "If you have any question do",
+        "corrected": "If you have any questions, do",
+        "mistakes": [
+          {
+            "incorrect": "any question do",
+            "correction": "any questions, do",
+            "short_form": "gr. (incorrect plural form)",
+            "analysis": "any question do → any questions, do (the noun 'question' should be plural to match the context)"
+          }
+        ]
+      },
+      {
+        "original": "not think twice and contact me back in this",
+        "corrected": "not hesitate to contact me back at this",
+        "mistakes": [
+          {
+            "incorrect": "think twice and contact me back in this",
+            "correction": "hesitate to contact me back at this",
+            "short_form": "gr. (incorrect verb form)",
+            "analysis": "think twice and contact me back in this → hesitate to contact me back at this (the phrase is improved by using 'hesitate' instead of 'think twice')"
+          }
+        ]
+      },
+      {
+        "original": "Some email adress.",
+        "corrected": "email address.",
+        "mistakes": [
+          {
+            "incorrect": "Some email adress.",
+            "correction": "email address.",
+            "short_form": "sp. (incorrect spelling of words)",
+            "analysis": "Some email adress. → email address. (the word 'adress' is a misspelling; the correct spelling is 'address')"
+          }
+        ]
+      },
+      {
+        "original": "e-mail",
+        "corrected": "",
+        "mistakes": [
+          {
+            "incorrect": "e-mail",
+            "correction": "",
+            "short_form": "writing (imprecise language)",
+            "analysis": "e-mail → (the term is unnecessary in this context and should be omitted)"
+          }
+        ]
+      },
+      {
+        "original": "Lake",
+        "corrected": "",
+        "mistakes": [
+          {
+            "incorrect": "Lake",
+            "correction": "",
+            "short_form": "writing (imprecise language)",
+            "analysis": "Lake → (the term is unclear and does not connect to the previous context)"
+          }
+        ]
+      },
+      {
+        "original": "Sincerely,",
+        "corrected": "Sincerely,",
+        "mistakes": []
+      }
+    ]
