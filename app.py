@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, send_from_directory
 import json
 import os
 from ocr_pdf import ocr_pdf
+from tool import mistakes_detect
 
 # Uncomment these when ready
 #from ocr_pdf import ocr_pdf
@@ -38,26 +39,36 @@ def upload_file():
     if file and allowed_file(file.filename):
         # Save the uploaded file
         file_path = os.path.join(UPLOAD_FOLDER, file.filename.replace(" ", "_"))
-        print(file_path)
         file.save(file_path)
         
         try:
+            print("Reading text...")
             text_file_path = ocr_pdf(file_path)
-            print(text_file_path)
             with open(text_file_path, "r") as text_file:
-                content = text_file.read()
-            text = content 
+                text = text_file.read()
             
+            print("Processing text...")
             # Detect mistakes in the extracted text (uncomment when ready)
-            # mistakes = mistakes_detect(text)
-            mistakes = ["sample mistake"] # Replace with actual mistake detection
+            mistakes = mistakes_detect(text)
+            with open("mistakes.json", "w") as outfile:
+                json.dump(mistakes, outfile)
+
+            with open("mistakes.json", "r") as file_json:
+                data = json.load(file_json)
             
-            return jsonify({
-                "success": True,
-                "filename": file.filename,
-                "text": text,
-                "mistakes": mistakes
-            })
+            if data:
+                return jsonify({
+                    "success": True,
+                    "filename": file.filename,
+                    "text": text,
+                    "mistakes": data
+                })
+            else:
+                return jsonify({
+                    "success": False,
+                    "filename": file.filename,
+                    "text": text
+                })
         
         except Exception as e:
             return jsonify({

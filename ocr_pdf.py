@@ -56,3 +56,5 @@ def ocr_pdf(file_path):
             print(f"Reason: {e.reason}")
             print(f"Message: {e.error.message}")
     return output_file
+
+#file = ocr_pdf("pdf_files/sample4_languagepoint2_no comments.pdf")
