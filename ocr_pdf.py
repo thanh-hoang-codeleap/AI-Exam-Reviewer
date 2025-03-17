@@ -5,9 +5,11 @@ from azure.ai.vision.imageanalysis.models import VisualFeatures
 from azure.core.credentials import AzureKeyCredential
 from azure.core.exceptions import HttpResponseError
 
-def ocr_pdf(file_path):
+def ocr_pdf(file_path: str) -> str:
+    # Convert PDF pages to images
     images = convert_from_path(file_path)
 
+    # Initialize Azure ImageAnalysisClient
     client = ImageAnalysisClient(
         endpoint=os.getenv("END_POINT"),
         credential=AzureKeyCredential(os.getenv("API_KEY"))
@@ -24,6 +26,7 @@ def ocr_pdf(file_path):
     if not os.path.exists(images_folder):
         os.makedirs(images_folder)
 
+    # Process each image (PDF page) for OCR
     for i, image in enumerate(images):
         image_path = f'{images_folder}/page_{i + 1}.png'
         image.save(image_path, 'PNG')
@@ -33,6 +36,8 @@ def ocr_pdf(file_path):
 
         try:
             print(f"Processing page {i + 1}...") 
+
+            # Call Azure OCR API
             result = client.analyze(
                 image_data=image_data,
                 visual_features=visual_features,
@@ -56,5 +61,3 @@ def ocr_pdf(file_path):
             print(f"Reason: {e.reason}")
             print(f"Message: {e.error.message}")
     return output_file
-
-#file = ocr_pdf("pdf_files/sample4_languagepoint2_no comments.pdf")

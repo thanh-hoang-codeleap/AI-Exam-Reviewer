@@ -9,7 +9,7 @@
 <body>
     <h1>Exam Reviewer</h1>
     <form id="uploadForm" enctype="multipart/form-data">
-        <label for="fileUpload">Choose a PDF file to process:</label>
+        <label for="fileUpload">Choose a PDF file to extract text:</label>
         <input type="file" id="fileUpload" name="file" accept=".pdf" required>
         <br>
         <button type="submit">Upload File</button>
@@ -36,17 +36,17 @@
                     let statusHtml = '<p class="success">File processed successfully!</p>';
                     statusHtml += "<h3>Extracted Text:</h3>";
                     statusHtml += "<pre-wrap>" + data.text + "</pre-wrap>";
-                    statusHtml += "<h3>Detected Mistakes:</h3>";
+                    // statusHtml += "<h3>Detected Mistakes:</h3>";
                     
-                    if (data.mistakes && data.mistakes.length > 0) {
-                        statusHtml += "<ul>";
-                        data.mistakes.forEach(mistake => {
-                            statusHtml += "<li>" + mistake + "</li>";
-                        });
-                        statusHtml += "</ul>";
-                    } else {
-                        statusHtml += "<p>No mistakes detected.</p>";
-                    }
+                    // if (data.mistakes && data.mistakes.length > 0) {
+                    //     statusHtml += "<ul>";
+                    //     data.mistakes.forEach(mistake => {
+                    //         statusHtml += "<li>" + mistake + "</li>";
+                    //     });
+                    //     statusHtml += "</ul>";
+                    // } else {
+                    //     statusHtml += "<p>No mistakes detected.</p>";
+                    // }
                     
                     document.getElementById("status").innerHTML = statusHtml;
                 } else {

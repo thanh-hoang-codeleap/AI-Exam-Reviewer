@@ -1,5 +1,6 @@
 import os
 import json
+import ast
 from relevanceai import RelevanceAI
 
 def mistakes_detect(text: str) -> (dict | None):
@@ -10,47 +11,74 @@ def mistakes_detect(text: str) -> (dict | None):
     )
 
     tool_ids = [
-        "8949c2fb-d5e7-4893-a55e-6c65a10921bc",
-        "b96bf2d9-13ab-4359-aa23-5e6c6ff56dbc",
-        "bf893971-7786-4476-906d-3fbbc0813f43",
-        "442760c3-092e-4b58-bc81-289c069021f5"
+        "37acd9e8-8a39-4167-b667-1e4696bfbc9e",
+        "7c97d71a-3967-4577-b190-7234aa185c09",
+        "d5c87002-eda5-4d2d-8b78-3f0966c62312"
     ]
+    # Correcting the text
+    json_data = mistakes_correction(client, text, tool_ids[0])
+    # Identify the mistakes
+    json_data_1 = mistakes_identification(client, json_data, tool_ids[1])
+    # Analyze the mistakes
+    first_json, second_json = mistakes_analysis(client, json_data_1, tool_ids[2])
 
-    input_data = text 
+    return first_json, second_json
+
+
+def mistakes_correction(client: RelevanceAI, text: str, tool_id: str) -> (dict | None):
     try:
-        my_tool_1 = client.tools.retrieve_tool(tool_id=tool_ids[0])
-        my_tool_2 = client.tools.retrieve_tool(tool_id=tool_ids[1])
-        my_tool_3 = client.tools.retrieve_tool(tool_id=tool_ids[2])
-        my_tool_4 = client.tools.retrieve_tool(tool_id=tool_ids[3])
-
-        # First get the output from tool 1
+        # Retrive tool
+        correction_tool = client.tools.retrieve_tool(tool_id=tool_id)
+ 
         print("Correcting the text...")
-        tool1_result = my_tool_1.trigger(params={"long_text": input_data})
+        tool_result = correction_tool.trigger(params={"long_text": text})
 
         print("Text corrected")
-        # Extract the JSON data properly 
-        if 'to_json_output' in tool1_result.output:
-            json_data = tool1_result.output["to_json_output"]
-        if 'corrections' in tool1_result.output:
-            json_data = tool1_result.output["corrections"]
-        else:
-            json_data = tool1_result.output
 
-        print("Identifying mistakes...")
-        if isinstance(json_data, str):
-            tool2_result = my_tool_2.trigger(params={"long_text": json_data})
+        # Extract output
+        if 'to_json_output' in tool_result.output:
+            json_data = tool_result.output["to_json_output"]
+        if 'corrections' in tool_result.output:
+            json_data = tool_result.output["corrections"]
         else:
-            tool2_result = my_tool_2.trigger(params={"long_text": json.dumps(json_data)})
+            json_data = tool_result.output
+            
+        return json_data
+    
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+def mistakes_identification(client: RelevanceAI, json_data: str|dict, tool_id: str) -> (dict|None):
+    try:
+        # Retrive tool
+        identification_tool = client.tools.retrieve_tool(tool_id=tool_id)
+        print("Identifying mistakes...")
+
+        # Handle based on input type
+        if isinstance(json_data, str):
+            tool_result = identification_tool.trigger(params={"long_text": json_data})
+        else:
+            tool_result = identification_tool.trigger(params={"long_text": json.dumps(json_data)})
 
         print("Mistakes identified")
 
-        if 'to_json_output' in tool2_result.output:
-            json_data = tool2_result.output["to_json_output"]
-        if 'corrections' in tool2_result.output:
-            json_data = tool2_result.output["corrections"]
-        else:
-            json_data = tool2_result.output
+        # Extract output
+        json_data = tool_result.output
+        if 'to_json_output' in json_data:
+            output_data = json_data["to_json_output"] 
+        if 'corrections' in json_data:
+            output_data = json_data["corrections"]
 
+        return output_data
+    
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+def split_json(json_data: str | dict) -> (tuple[dict, dict] | None):
+    try:
+        # Parse JSON
         if isinstance(json_data, str):
             try:
                 parsed_json = json.loads(json_data)
@@ -60,119 +88,58 @@ def mistakes_detect(text: str) -> (dict | None):
         else:
             parsed_json = json_data
 
-        print("Analyzing the mistakes...")
-        # Process based on size
-        if parsed_json and isinstance(parsed_json, dict) and len(parsed_json) > 7000:
-            print(f"Large JSON detected with {len(parsed_json)} items. Splitting for processing.")
-            
-            # Split the list into two halves
-            mid_point = len(parsed_json) // 2
-            first_half = parsed_json[:mid_point]
-            second_half = parsed_json[mid_point:]
-            
-            # Process first half
-            print(f"Processing first half ({len(first_half)} items)")
-            first_half_json = json.dumps(first_half)
-            first_result = my_tool_3.trigger(params={"long_text": first_half_json}).output
-            if not isinstance(first_result, str):
-                first_result = json.dumps(first_result)
-            
-            # Process second half
-            print(f"Processing second half ({len(second_half)} items)")
-            second_half_json = json.dumps(second_half)
-            second_result = my_tool_3.trigger(params={"long_text": second_half_json}).output
-            if not isinstance(second_result, str):
-                second_result = json.dumps(second_result)
-
-            response = my_tool_4.trigger(params={
-                "long_text": first_result,
-                "long_text_1": second_result
-            })
+        if isinstance(parsed_json, dict) and 'text' in parsed_json:
+            data = parsed_json['text']
         else:
-            # Original processing for smaller JSON data
-            if parsed_json is None:
-                print("Error: parsed_json is None")
-            if isinstance(parsed_json, str):
-                response = my_tool_3.trigger(params={"long_text": parsed_json})
-            else:
-                print('go dump')
-                json_string = json.dumps(parsed_json)
-                response = my_tool_3.trigger(params={"long_text": json.dumps(json_string)})
-        print("Mistakes analyzed")
-        result = response.output
+            data = parsed_json
 
-        print("Processing response")
-        if 'to_json_output' in result:
-            result = result["to_json_output"]
-        if 'text' in result:
-            result = result["text"]
-        if 'results' in result:
-            result = result["results"]
-        else:
-            result = response.output
+        # Split into two halves
+        midpoint =  len(data) // 2
 
-        print(result)
+        first_half = data[:midpoint]
+        second_half = data[midpoint:]
 
-        if isinstance(result, str):
-            try:
-                result = json.loads(result)
-            except json.JSONDecodeError:
-                result = None
-                print("Warning: Could not parse JSON string")
+        first_json = {"text": first_half}
+        second_json = {"text": second_half}
 
-        print(type(result))
-
-        return result
-        
+        return first_json, second_json
+    
     except Exception as e:
         print(f"Error: {e}")
-    # for i in range(3):
-    #     my_tool = client.tools.retrieve_tool(tool_id=tool_ids[i])
-    #     try:
-    #         print(f"Running tool {i+1}...")
-    #         if i == 0:
-    #             response = my_tool.trigger(params={
-    #                 "long_text": input_data
-    #             })
-    #         else:
-    #             # response = my_tool.trigger(params={
-    #             #     "json": json.dumps(input_data)
-    #             # })
-    #             if isinstance(input_data, dict):
-    #                 json_data = json.dumps(input_data)
-    #             else:
-    #                 # If for some reason it's not a dict, try to make it one
-    #                 try:
-    #                     # If it looks like a string that's already JSON
-    #                     if isinstance(input_data, str) and (input_data.startswith('{') or input_data.startswith('[')):
-    #                         json_data = input_data
-    #                     else:
-    #                         json_data = json.dumps({"data": input_data})
-    #                 except Exception as e:
-    #                     print(f"Error preparing JSON: {e}")
-    #                     json_data = json.dumps({"text": str(input_data)})
-                
-    #             print(f"Sending JSON to tool {i+1}: {json_data[:100]}...")  # Print first 100 chars for debugging
-    #             response = my_tool.trigger(params={
-    #                 "json": json_data
-    #             })
+    
 
-    #         print(f"Response type: {type(response)}")
-    #         print(f"Response dir: {dir(response)}")  # This will show all attributes and methods
+def mistakes_analysis(client: RelevanceAI, json_data: str|dict, tool_id: str) -> (tuple[list, list] | None):
+    try:
+        # Retrieve tool
+        analysis_tool = client.tools.retrieve_tool(tool_id=tool_id)
+        
+        # Split the input data into two halves
+        first_json, second_json = split_json(json_data)
 
-    #         input_data = response.output
-    #         response = None
-    #         print(f"Tool {i+1} completed successfully.")
+        if first_json is None or second_json is None:
+            print("Error: Failed to split JSON properly.")
+            return None, None
 
-            
-    #     except Exception as e:
-    #         print(f"Error: {e}")
+        # Process the first half
+        print("Processing first half...")
+        first_result = analysis_tool.trigger(params={
+            "long_text": json.dumps(first_json)
+        }).output['to_json_output']['results']
+
+        # Process the second half
+        print(f"Processing second half...")
+        second_result = analysis_tool.trigger(params={
+            "long_text": json.dumps(second_json)
+        }).output['to_json_output']['results']
+
+        return first_result, second_result
+    
+    except Exception as e:
+        print(f"Error: {e}")
 
 
-# text_file = "extracted_texts/sample_5_languagepoint3_no_comments.txt"
-# with open(text_file, "r") as file_text:
-#     text = file_text.read()
-
-# res = None
-# res = mistakes_detect(text)
-# print(f"Result: {res}")
+def process_output(first_result: list, second_result: list) -> list:
+    a = ast.literal_eval(first_result)
+    b = ast.literal_eval(second_result)
+    a.update(b)
+    return a
